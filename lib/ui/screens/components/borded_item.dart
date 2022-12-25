@@ -9,7 +9,7 @@ class BordedItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final responsive = Responsive(context);
     return Positioned(
-      right: responsive.wp(-15),
+      right: responsive.wp(-16),
       top: responsive.wp(2),
       child: Transform.rotate(
         angle: pi / 3,

@@ -1,5 +1,3 @@
-
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_responsivity_widget/flutter_responsivity_widget.dart';
 import 'package:snowfall/snowfall/snowfall_widget.dart';
@@ -14,59 +12,32 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
+  bool bye=false;
   @override
   Widget build(BuildContext context) {
     final responsive = Responsive(context);
     return Scaffold(
-      body: SnowfallWidget(
-        alpha: 70,
-        child: SizedBox(
-          width: responsive.wp(100),
-          height: responsive.hp(100),
-          child: Stack(
-            children: [
-              BordedItem(),
-              const ItemTree(),
-              Padding(
-                padding: const EdgeInsets.all(60.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ItemMenu(responsive: responsive),
-                    const SizedBox(height: 70),
-                    const Text('merry christmas',
-                        style: TextStyle(color: Colors.white, fontSize: 32)),
-                    const SizedBox(height: 70),
-                    const Text('Welcome to our site',
-                        style: TextStyle(
-                            color: Colors.white70,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w300)),
-                    const SizedBox(height: 10),
-                    const Text(
-                        'Being with family and friends is the most valuable Christmas \ngift ever! Happy Holidays everyone.',
-                        style: TextStyle(color: Colors.white70, fontSize: 12)),
-                    const SizedBox(height: 40),
-                    const ItemReadMore(),
-                  ],
-                ),
-              ),
-              Positioned(
-                bottom: 0,
-                child: FadeInDown(
-                  from: 1000,
-                  child: const Icon(
-                    Icons.ac_unit_outlined,
-                    color: Colors.white,
-                    size: 14,
-                  ),
-                ),
-              ),
-      
-           
-           
-            ],
+      body: GestureDetector(
+        onTap: (){
+
+          bye=!bye;
+          setState(() {
+            
+          });
+        },
+        child: SnowfallWidget(
+          alpha: 70,
+          child: SizedBox(
+            width: responsive.wp(100),
+            height: responsive.hp(100),
+            child: Stack(
+              children: [
+                BordedItem(),
+                const ItemTree(),
+                const ContentItem(),
+                BordedByeItem(bye: bye,)
+              ],
+            ),
           ),
         ),
       ),
@@ -74,41 +45,52 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class ItemReadMore extends StatelessWidget {
-  const ItemReadMore({
+class ContentItem extends StatelessWidget {
+  const ContentItem({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 29,
-      width: 130,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
-          border: Border.all(color: Colors.white70)),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
+     final responsive = Responsive(context);
+    return Padding(
+      padding: const EdgeInsets.all(60.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Read More'.toUpperCase(),
-            style: const TextStyle(
-              fontWeight: FontWeight.w300,
-              color: Colors.white70,
-              fontSize: 12,
-            ),
-          ),
-          const Icon(
-            Icons.arrow_forward,
-            color: Colors.white70,
-          ),
+          ItemMenu(responsive: responsive),
+          const SizedBox(height: 70),
+          const Text('merry christmas',
+              style: TextStyle(color: Colors.white, fontSize: 32)),
+          const SizedBox(height: 70),
+          const Text('Welcome to our site',
+              style: TextStyle(
+                  color: Colors.white70,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w300)),
+          const SizedBox(height: 10),
+          const Text(
+              'Being with family and friends is the most valuable Christmas \ngift ever! Happy Holidays everyone.',
+              style: TextStyle(color: Colors.white70, fontSize: 12)),
+          const SizedBox(height: 70),
+          const Text('2022-12-25',
+              style: TextStyle(
+                  color: Colors.white70,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w300)),
+          const SizedBox(height: 10),
+          const Text(
+              'To live is to accept each minute as a miracle that cannot be repeated.',
+              style: TextStyle(color: Colors.white70, fontSize: 12)),
+          const SizedBox(height: 40),
+          const ItemReadMore(),
+          const SizedBox(height: 60),
         ],
       ),
     );
   }
 }
+
 
 class ItemMenu extends StatelessWidget {
   const ItemMenu({
