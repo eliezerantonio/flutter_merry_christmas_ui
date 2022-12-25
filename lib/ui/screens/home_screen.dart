@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsivity_widget/flutter_responsivity_widget.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:lottie/lottie.dart';
-import 'package:animate_do/animate_do.dart';
 import 'package:snowfall/snowfall/snowfall_widget.dart';
 
 import 'components/components.dart';

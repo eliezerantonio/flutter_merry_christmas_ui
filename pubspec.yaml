@@ -30,7 +30,6 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   animate_do: ^3.0.2
-  animated_text_kit: ^4.2.2
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
