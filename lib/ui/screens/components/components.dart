@@ -2,3 +2,8 @@ export './borded_item.dart';
 export './borded_bye_item.dart';
 export './item_tree.dart';
 export './readmore_item.dart';
+export './swinging_item.dart';
+export './animated_text_item.dart';
+export './shimes_item.dart';
+export './donu_item.dart';
+export './content_item.dart';
